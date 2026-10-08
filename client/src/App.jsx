@@ -13,7 +13,7 @@ function App() {
  
   const getStudents = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/students");
+      const response = await axios.get("https://practicalreyes-j89r.vercel.app/students");
       setStudents(response.data);
     } catch (error) {
       console.log("Failed to load students:", error);
@@ -30,10 +30,10 @@ function App() {
     try {
       if (editingId) {
         await axios.put(
-          `http://localhost:5000/students/${editingId}`, data
+          `https://practicalreyes-j89r.vercel.app/students/${editingId}`, data
         );
       } else {
-        await axios.post("http://localhost:5000/students", data);
+        await axios.post("https://practicalreyes-j89r.vercel.app/students", data);
       }
       setName("");
       setCourse("");
@@ -48,7 +48,7 @@ function App() {
  
   const deleteStudent = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/students/${id}`);
+      await axios.delete(`https://practicalreyes-j89r.vercel.app/students/${id}`);
       await getStudents();
     } catch (error) {
       console.log(error);
@@ -67,7 +67,7 @@ function App() {
  
   useEffect(() => {
     axios
-      .get("http://localhost:5000/students")
+      .get("https://practicalreyes-j89r.vercel.app/students")
       .then((response) => {
         setStudents(response.data)
       })
